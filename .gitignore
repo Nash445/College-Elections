@@ -119,4 +119,4 @@ dist
 #my own files
 ref.txt
 
-.node_modules
+/node_modules
