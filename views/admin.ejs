@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/signup_style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal</title>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+            <h1> <b> ADMIN LOGIN </b> </h1>
+    <form action="/admin" method = "POST">
+        <input type="text" name="electionname" placeholder="YEAR_BRANCH : 18_CSE">
+        <select name="college" required>
+            <option value="none" selected disabled hidden>
+                College
+            </option>
+            <option value="NITD"> National Institute of Technology, Delhi </option>
+            <option value="NITK"> National Institute of Technology, Kurukshetra </option>
+            <option value="NITW"> National Institute of Technology, Warangal </option>
+        </select>
+        <input type="text" name="semester" placeholder="Semester">
+        <label for="">Start Time</label>
+        <input type="datetime-local" name="starttime">
+        <label for="">End Time</label>
+        <input type="datetime-local" name="endtime" placeholder="Start Time">
+        <button type = "submit">SUBMIT</button>
+    </form>
+    <a href="/adminlogout"><button type = "submit" name = "logout" >LOGOUT</button></a>
+</div>
+</div>
+</body>
+</html>

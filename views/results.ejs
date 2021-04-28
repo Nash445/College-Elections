@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Result</title>
+</head>
+<body>
+    <h1 style="text-align: center; font-size: 45px;"><%= Heading[0].collegename+ " " + Heading[0].electionname + " Semester " + Heading[0].semester %></h1>
+    <table>
+    <% Candidates.sort(function(a,b) {return (a.count < b.count) ? 1 : ((b.count < a.count) ? -1 : 0);} ) %>
+    <% Candidates.forEach(function(Candidate) { %>
+        <tr class="b">
+            <td class="a">
+                <b><%= Candidate.name %></b>
+                <br>
+                <br>
+                <%= Candidate.rollno %>
+            </td>
+            <td class="a" style="color: rgb(0, 0, 0); font-size: xx-large; font-weight: bolder;">
+                <%= Candidate.count %>
+            </td>
+        </tr>    
+    <% }); %>
+    </table>
+    <a href="/portal"><button style="float: right;" class = "bu"> Home </button></a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<div>
+    <div class="ongoing">
+        <h1 style="text-align: center; font-size: 40px; margin-top: 15px; color: rgb(247, 36, 36);"> <b> Ongoing Elections </b></h1>
+    </div>
+    <% electionObject.forEach(function(Election) { %>
+        <% var today = new Date(); %>
+        <% console.log(today) %>
+        <% var electionid = Election._id %>
+        <% var st_d = new Date(Election.starttime); %>
+        <% var en_d = new Date(Election.endtime); %>
+        <% if(today >= st_d && today <= en_d){ %>
+            <form action="/vote" method="post">
+                <table class = "ElectionTables">
+                    <tr style="width: 100%;"><td colspan="2"> <b> <%= Election.electionname %> Semester <%= Election.semester %> </b></tr>
+                        <tr><td style="width: 40%;"> Start Time : <b><%= Election.starttime.slice(0, 10) + " " + Election.starttime.slice(11, 16) %></b> </td> <td style="width: 40%;">  End Time : <b> <%= Election.endtime.slice(0, 10) + " " + Election.endtime.slice(11, 16) %> </b></td></tr>  
+                        <tr style="width: 100%;">
+                            <td colspan="2">
+                                <form action="/results" method="POST">
+                                    <input type="text" name="id" value="<%=Election._id%>" style="display: none;">
+                                    <button type="submit" class="viewresult" style="float: right;" > Vote Now </button>
+                                </form>
+                            </td>
+                        </tr>
+                </table>
+            </form>
+        <% } %>
+    <% }); %>
+</div>

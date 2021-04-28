@@ -1,0 +1,56 @@
+<div>
+<h1 style="text-align: center; font-size: 40px; color: #F0D43A;"> <b> Profile </b> </h1>
+<div style="padding-left: 34%; ">
+    <table style = " width: 100%; border-collapse: collapse;">
+        <tr>
+            <td class = "details">
+                Name
+            </td>
+            <td class ="values" >
+                <%= details.name %>
+            </td>
+        </tr>
+        <tr>
+            <td class = "details">
+                Roll number
+            </td>
+            <td class ="values" >
+                <%= details.email.slice(0,9) %>
+            </td>
+        </tr>
+        <tr>
+            <td class = "details">
+                Email
+            </td>
+            <td class ="values">
+                <%= details.email %>
+            </td>
+        </tr>
+        <tr>
+            <td class = "details">
+                Branch
+            </td>
+            <td class ="values" >
+                <%= details.branch %>
+            </td>
+        </tr>
+        <tr>
+            <td class = "details">
+                Phone Number
+            </td>
+            <td class ="values">
+                <%= details.phone %>
+            </td>
+        </tr>
+        <tr>
+            <td class = "details">
+                Date Of Birth 
+            </td>
+            <td class ="values">
+                <%= details.dob.slice(0,10) %>
+            </td>
+        </tr>
+    </table>
+    <a style = "padding-left: 130px; font-size: 30px; text-align: center;" href="/resetpassword"> <u> Reset Password </u></a>
+</div>
+</div>

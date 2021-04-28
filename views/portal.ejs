@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+      <title>Election Portal</title>
+    <meta charset="utf-8">
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+    <header>
+        Want More?
+    </header>
+    <ul>
+        <li><a id = "a1" onclick=home() style="background-color: #F23557">Home</a></li>
+        <li><a id = "a2" onclick=profile() style="background-color: #F0D43A">Profile</a></li>
+        <li><a id = "a3" onclick=prev() style="background-color: #22B2DA;">Previous Results</a></li>
+        <li><a id = "a4" onclick=upcom() style="background-color: #3B486B">Upcoming Elections</a></li>
+        <li><a id = "a5" href="/logout" style="background-color: rgb(129, 69, 69)">Logout</a></li>
+    </ul>
+    
+    </div>
+    <section>
+        <div id='header' style="padding-left: 15px; display: block; height: 90px;">
+            <h1 style="font-size: 50px; text-align: center;">Greetings <%= details.name %> </h1>
+        </div>
+        <div id='profile' style='display:none; '>
+            <%- include('profile.ejs'); -%>
+        </div>
+        <div id='home' style='display:block;'>
+            <%- include('home.ejs'); -%>
+        </div>
+        <div id='prev' style="display: none;">
+            <%- include('previous.ejs'); -%>
+        </div>
+        <div id='upcom' style="display: none;">
+            <%- include('upcoming.ejs'); -%>
+        </div>
+    </section>
+</body>
+
+
+    <script>
+        function profile(){
+            document.getElementById('home').style.display='none';
+            document.getElementById('profile').style.display='block';
+            document.getElementById('prev').style.display='none';
+            document.getElementById('upcom').style.display='none';
+        }
+        function home(){
+            document.getElementById('home').style.display='block';
+            document.getElementById('profile').style.display='none';
+            document.getElementById('prev').style.display='none';
+            document.getElementById('upcom').style.display='none';
+        }
+        function prev(){
+            document.getElementById('home').style.display='none';
+            document.getElementById('profile').style.display='none';
+            document.getElementById('upcom').style.display='none';
+            document.getElementById('prev').style.display='block';
+
+        }
+        function upcom(){
+            document.getElementById('home').style.display='none';
+            document.getElementById('profile').style.display='none';
+            document.getElementById('prev').style.display='none';
+            document.getElementById('upcom').style.display='block';
+        }
+    </script>
+</html>

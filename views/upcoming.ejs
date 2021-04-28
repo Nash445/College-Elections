@@ -1,0 +1,28 @@
+<div>
+    <div class="ongoing">
+        <h1 style="text-align: center; font-size: 40px; margin-top: 15px; color: #3B486B;"> <b> Upcoming Elections </b> </h1>
+    </div>
+    <% electionObject.sort(function(a,b) {return (a.starttime > b.starttime) ? 1 : ((b.starttime > a.starttime) ? -1 : 0);} ) %>
+    <% electionObject.forEach(function(Election) { %>
+        <% var today = new Date(); %>
+        <% console.log(today) %>
+        <% var st_d = new Date(Election.starttime); %>
+        <% var en_d = new Date(Election.endtime); %>
+        <% if(today < st_d){ %>
+            <table class = "ElectionTables">
+            <form action="/register" method = "POST">
+                <tr style="width: 100%;"><td colspan="2"> <b> <%= Election.electionname %> Semester <%= Election.semester %> </b> </tr>
+                    <tr><td style="width: 40%;"> Start Time : <b><%= Election.starttime.slice(0, 10) + " " + Election.starttime.slice(11, 16) %></b> </td> <td style="width: 40%;">  End Time : <b> <%= Election.endtime.slice(0, 10) + " " + Election.endtime.slice(11, 16) %> </b></td></tr>  
+                    <tr style="width: 100%;">
+                        <td colspan="2">
+                            <form action="/results" method="POST">
+                                <input type="text" name="id" value="<%=Election._id%>" style="display: none;">
+                                <button type="submit" class="viewresult2" style="float: right;" > Register as a Leader </button>
+                            </form>
+                        </td>
+                    </tr>
+            </form>
+        </table>
+        <% } %>
+    <% }); %>
+</div>
